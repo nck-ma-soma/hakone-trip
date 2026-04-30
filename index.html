@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箱根旅行 2026年5月7日〜8日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 24px;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .info-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 4px 12px;
+            margin-top: 8px;
+            font-size: 0.85rem;
+        }
+        .day-section {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .day-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .day-title h2 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .day-title p {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: #e0e0e0;
+        }
+        .event {
+            position: relative;
+            margin-bottom: 20px;
+            padding-left: 16px;
+        }
+        .event:last-child {
+            margin-bottom: 0;
+        }
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+        .event.meal::before {
+            background: #f59e0b;
+            box-shadow: 0 0 0 2px #f59e0b;
+        }
+        .event.onsen::before {
+            background: #ef4444;
+            box-shadow: 0 0 0 2px #ef4444;
+        }
+        .event.museum::before {
+            background: #10b981;
+            box-shadow: 0 0 0 2px #10b981;
+        }
+        .event-time {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 2px;
+        }
+        .event.meal .event-time { color: #f59e0b; }
+        .event.onsen .event-time { color: #ef4444; }
+        .event.museum .event-time { color: #10b981; }
+        .event-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .event-detail {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .event-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+        .tag-transport { background: #ede9fe; color: #7c3aed; }
+        .tag-spot { background: #e0f2fe; color: #0284c7; }
+        .tag-food { background: #fef3c7; color: #d97706; }
+        .tag-onsen { background: #fee2e2; color: #dc2626; }
+        .tag-museum { background: #d1fae5; color: #059669; }
+        .notes-section {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .notes-section h3 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .notes-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .notes-section li {
+            font-size: 0.85rem;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+        }
+        .notes-section li:last-child {
+            border-bottom: none;
+        }
+        .notes-section li::before {
+            content: '✓ ';
+            color: #10b981;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗻 箱根旅行</h1>
+            <p>2026年5月7日（木）〜 8日（金）</p>
+            <span class="info-badge">👫 大人2名</span>
+        </header>
+
+        <!-- Day 1 -->
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-number">Day1</div>
+                <div class="day-title">
+                    <h2>5月7日（木）</h2>
+                    <p>出発 → 箱根観光 → 温泉宿泊</p>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="event">
+                    <div class="event-time">9:00</div>
+                    <div class="event-title">新宿駅 出発</div>
+                    <div class="event-detail">小田急ロマンスカーで箱根湯本へ<br>（約85分）</div>
+                    <span class="event-tag tag-transport">🚃 移動</span>
+                </div>
+                <div class="event">
+                    <div class="event-time">10:30</div>
+                    <div class="event-title">箱根湯本駅 到着</div>
+                    <div class="event-detail">荷物をコインロッカーに預けて身軽に観光</div>
+                    <span class="event-tag tag-transport">🚃 移動</span>
+                </div>
+                <div class="event museum">
+                    <div class="event-time">11:00 - 13:00</div>
+                    <div class="event-title">彫刻の森美術館</div>
+                    <div class="event-detail">野外アート×新緑を満喫。ピカソ館も必見。<br>箱根登山鉄道で「彫刻の森」駅下車すぐ</div>
+                    <span class="event-tag tag-museum">🎨 美術館</span>
+                </div>
+                <div class="event meal">
+                    <div class="event-time">13:15</div>
+                    <div class="event-title">ランチ：強羅周辺</div>
+                    <div class="event-detail">田むら銀かつ亭（豆腐かつ煮）or<br>強羅花壇のカフェでランチ</div>
+                    <span class="event-tag tag-food">🍽 グルメ</span>
+                </div>
+                <div class="event">
+                    <div class="event-time">14:30 - 15:30</div>
+                    <div class="event-title">大涌谷</div>
+                    <div class="event-detail">箱根ロープウェイで空中散歩。<br>名物の黒たまご（寿命+7年!?）を堪能</div>
+                    <span class="event-tag tag-spot">📍 観光</span>
+                </div>
+                <div class="event">
+                    <div class="event-time">16:00 - 17:00</div>
+                    <div class="event-title">芦ノ湖 海賊船クルーズ</div>
+                    <div class="event-detail">桃源台港→箱根町港<br>天気が良ければ富士山ビュー！</div>
+                    <span class="event-tag tag-spot">📍 観光</span>
+                </div>
+                <div class="event">
+                    <div class="event-time">17:15</div>
+                    <div class="event-title">箱根神社</div>
+                    <div class="event-detail">芦ノ湖畔の水中鳥居で記念撮影。<br>平和のパワースポット</div>
+                    <span class="event-tag tag-spot">📍 観光</span>
+                </div>
+                <div class="event onsen">
+                    <div class="event-time">18:30</div>
+                    <div class="event-title">温泉旅館チェックイン</div>
+                    <div class="event-detail">仙石原・強羅エリアの温泉宿へ<br>露天風呂でゆったり疲れを癒す</div>
+                    <span class="event-tag tag-onsen">♨️ 温泉</span>
+                </div>
+                <div class="event meal">
+                    <div class="event-time">19:30</div>
+                    <div class="event-title">夕食：旅館の会席料理</div>
+                    <div class="event-detail">地元食材を使った季節の懐石料理</div>
+                    <span class="event-tag tag-food">🍽 グルメ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-number">Day2</div>
+                <div class="day-title">
+                    <h2>5月8日（金）</h2>
+                    <p>美術館 → グルメ → 帰路</p>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="event onsen">
+                    <div class="event-time">7:00</div>
+                    <div class="event-title">朝風呂</div>
+                    <div class="event-detail">朝の澄んだ空気の中で露天風呂</div>
+                    <span class="event-tag tag-onsen">♨️ 温泉</span>
+                </div>
+                <div class="event meal">
+                    <div class="event-time">8:00</div>
+                    <div class="event-title">朝食</div>
+                    <div class="event-detail">旅館の和朝食を堪能</div>
+                    <span class="event-tag tag-food">🍽 グルメ</span>
+                </div>
+                <div class="event">
+                    <div class="event-time">9:30</div>
+                    <div class="event-title">チェックアウト</div>
+                    <div class="event-detail">荷物は宿に預けるか、持って移動</div>
+                    <span class="event-tag tag-transport">🚃 移動</span>
+                </div>
+                <div class="event museum">
+                    <div class="event-time">10:00 - 12:00</div>
+                    <div class="event-title">ポーラ美術館</div>
+                    <div class="event-detail">印象派コレクションが充実。<br>森の遊歩道も散策可能（約20分）</div>
+                    <span class="event-tag tag-museum">🎨 美術館</span>
+                </div>
+                <div class="event meal">
+                    <div class="event-time">12:30</div>
+                    <div class="event-title">ランチ：箱根湯本</div>
+                    <div class="event-detail">はつ花 本店（自然薯そば）or<br>湯葉丼 直吉（ゆばの名店）</div>
+                    <span class="event-tag tag-food">🍽 グルメ</span>
+                </div>
+                <div class="event">
+                    <div class="event-time">13:30 - 14:30</div>
+                    <div class="event-title">箱根湯本 商店街散策</div>
+                    <div class="event-detail">お土産探し。箱根寄木細工、温泉まんじゅう、<br>干物など名産品をチェック</div>
+                    <span class="event-tag tag-spot">📍 観光</span>
+                </div>
+                <div class="event onsen">
+                    <div class="event-time">14:45 - 15:45</div>
+                    <div class="event-title">日帰り温泉：箱根湯寮</div>
+                    <div class="event-detail">旅の締めくくりに最後のひと風呂。<br>箱根湯本駅から無料シャトルバスあり</div>
+                    <span class="event-tag tag-onsen">♨️ 温泉</span>
+                </div>
+                <div class="event">
+                    <div class="event-time">16:30</div>
+                    <div class="event-title">箱根湯本駅 出発</div>
+                    <div class="event-detail">ロマンスカーで新宿へ（約85分）<br>お疲れ様でした！</div>
+                    <span class="event-tag tag-transport">🚃 移動</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="notes-section">
+            <h3>📋 持ち物・メモ</h3>
+            <ul>
+                <li>箱根フリーパス（ロマンスカー以外乗り放題）を購入</li>
+                <li>歩きやすい靴（石畳・坂道が多い）</li>
+                <li>タオル・着替え（日帰り温泉用）</li>
+                <li>天気予報をチェック（5月は新緑シーズン）</li>
+                <li>大涌谷は火山ガスのため体調注意</li>
+                <li>ロマンスカーは事前予約がおすすめ</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Last updated: 2026/04/30</p>
+        </footer>
+    </div>
+</body>
+</html>
