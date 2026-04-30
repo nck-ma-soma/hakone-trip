@@ -5,197 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>箱根旅行 2026年5月7日〜8日</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            padding-bottom: 80px;
             color: #333;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 24px;
-        }
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        header p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        .info-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            border-radius: 20px;
-            padding: 4px 12px;
-            margin-top: 8px;
-            font-size: 0.85rem;
-        }
-        .day-section {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        .day-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        .day-number {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-        .day-title h2 {
-            font-size: 1.2rem;
-            color: #333;
-        }
-        .day-title p {
-            font-size: 0.85rem;
-            color: #888;
-        }
-        .timeline {
-            position: relative;
-            padding-left: 24px;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 6px;
-            top: 8px;
-            bottom: 8px;
-            width: 2px;
-            background: #e0e0e0;
-        }
-        .event {
-            position: relative;
-            margin-bottom: 20px;
-            padding-left: 16px;
-        }
-        .event:last-child {
-            margin-bottom: 0;
-        }
-        .event::before {
-            content: '';
-            position: absolute;
-            left: -20px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #667eea;
-            border: 2px solid white;
-            box-shadow: 0 0 0 2px #667eea;
-        }
-        .event.meal::before {
-            background: #f59e0b;
-            box-shadow: 0 0 0 2px #f59e0b;
-        }
-        .event.onsen::before {
-            background: #ef4444;
-            box-shadow: 0 0 0 2px #ef4444;
-        }
-        .event.museum::before {
-            background: #10b981;
-            box-shadow: 0 0 0 2px #10b981;
-        }
-        .event-time {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 2px;
-        }
+        .container { max-width: 600px; margin: 0 auto; }
+        header { text-align: center; color: white; margin-bottom: 24px; }
+        header h1 { font-size: 1.8rem; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        header p { font-size: 1rem; opacity: 0.9; }
+        .info-badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 12px; margin-top: 8px; font-size: 0.85rem; }
+        .day-section { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .day-header { display: flex; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f0f0f0; }
+        .day-number { background: linear-gradient(135deg, #667eea, #764ba2); color: white; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; margin-right: 12px; flex-shrink: 0; }
+        .day-title h2 { font-size: 1.2rem; color: #333; }
+        .day-title p { font-size: 0.85rem; color: #888; }
+        .timeline { position: relative; padding-left: 24px; }
+        .timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: #e0e0e0; }
+        .event { position: relative; margin-bottom: 20px; padding-left: 16px; cursor: pointer; }
+        .event:last-child { margin-bottom: 0; }
+        .event::before { content: ''; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: #667eea; border: 2px solid white; box-shadow: 0 0 0 2px #667eea; }
+        .event.meal::before { background: #f59e0b; box-shadow: 0 0 0 2px #f59e0b; }
+        .event.onsen::before { background: #ef4444; box-shadow: 0 0 0 2px #ef4444; }
+        .event.museum::before { background: #10b981; box-shadow: 0 0 0 2px #10b981; }
+        .event-time { font-size: 0.8rem; font-weight: 600; color: #667eea; margin-bottom: 2px; }
         .event.meal .event-time { color: #f59e0b; }
         .event.onsen .event-time { color: #ef4444; }
         .event.museum .event-time { color: #10b981; }
-        .event-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .event-detail {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.5;
-        }
-        .event-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-top: 4px;
-            font-weight: 500;
-        }
+        .event-title { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+        .event-detail { font-size: 0.85rem; color: #666; line-height: 1.5; }
+        .event-tag { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; margin-top: 4px; font-weight: 500; }
         .tag-transport { background: #ede9fe; color: #7c3aed; }
         .tag-spot { background: #e0f2fe; color: #0284c7; }
         .tag-food { background: #fef3c7; color: #d97706; }
         .tag-onsen { background: #fee2e2; color: #dc2626; }
         .tag-museum { background: #d1fae5; color: #059669; }
-        .notes-section {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        .notes-section h3 {
-            font-size: 1rem;
-            margin-bottom: 12px;
-            color: #333;
-        }
-        .notes-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .notes-section li {
-            font-size: 0.85rem;
-            padding: 6px 0;
-            border-bottom: 1px solid #f0f0f0;
-            color: #555;
-        }
-        .notes-section li:last-child {
-            border-bottom: none;
-        }
-        .notes-section li::before {
-            content: '✓ ';
-            color: #10b981;
-            font-weight: bold;
-        }
-        footer {
-            text-align: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.75rem;
-            padding: 12px;
-        }
+
+        /* Event memo */
+        .event-memo { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 10px; margin-top: 8px; font-size: 0.8rem; color: #92400e; line-height: 1.4; }
+        .event-memo-btn { display: inline-block; font-size: 0.7rem; color: #667eea; cursor: pointer; margin-top: 6px; padding: 2px 6px; border-radius: 4px; background: #eef2ff; }
+
+        .notes-section { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .notes-section h3 { font-size: 1rem; margin-bottom: 12px; color: #333; }
+        .notes-section ul { list-style: none; padding: 0; }
+        .notes-section li { font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid #f0f0f0; color: #555; }
+        .notes-section li:last-child { border-bottom: none; }
+        .notes-section li::before { content: '✓ '; color: #10b981; font-weight: bold; }
+
+        /* Memo pad section */
+        .memo-section { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .memo-section h3 { font-size: 1rem; margin-bottom: 12px; color: #333; }
+        .memo-textarea { width: 100%; min-height: 120px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px; font-size: 0.85rem; font-family: inherit; resize: vertical; line-height: 1.6; }
+        .memo-textarea:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
+        .memo-save-hint { font-size: 0.7rem; color: #aaa; margin-top: 6px; }
+
+        /* TODO list */
+        .todo-section { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .todo-section h3 { font-size: 1rem; margin-bottom: 12px; color: #333; }
+        .todo-item { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+        .todo-item:last-child { border-bottom: none; }
+        .todo-checkbox { width: 20px; height: 20px; margin-right: 10px; cursor: pointer; accent-color: #667eea; }
+        .todo-text { flex: 1; font-size: 0.85rem; border: none; background: transparent; font-family: inherit; }
+        .todo-text:focus { outline: none; }
+        .todo-text.done { text-decoration: line-through; color: #aaa; }
+        .todo-delete { background: none; border: none; color: #ccc; cursor: pointer; font-size: 1.2rem; padding: 0 4px; }
+        .todo-delete:hover { color: #ef4444; }
+        .todo-add { display: flex; align-items: center; margin-top: 8px; }
+        .todo-add-input { flex: 1; border: 1px dashed #ddd; border-radius: 8px; padding: 8px 12px; font-size: 0.85rem; font-family: inherit; }
+        .todo-add-input:focus { outline: none; border-color: #667eea; }
+        .todo-add-btn { background: #667eea; color: white; border: none; border-radius: 8px; padding: 8px 14px; margin-left: 8px; cursor: pointer; font-size: 0.85rem; }
+
+        /* Bottom nav */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: white; display: flex; justify-content: center; gap: 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 100; padding: 0; }
+        .nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 10px 0; font-size: 0.65rem; color: #888; background: none; border: none; cursor: pointer; font-family: inherit; }
+        .nav-btn.active { color: #667eea; }
+        .nav-btn span.icon { font-size: 1.3rem; margin-bottom: 2px; }
+
+        /* Chat panel */
+        .chat-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 200; }
+        .chat-overlay.open { display: flex; flex-direction: column; }
+        .chat-panel { flex: 1; display: flex; flex-direction: column; background: #f9fafb; max-width: 600px; width: 100%; margin: 0 auto; }
+        .chat-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+        .chat-header h3 { font-size: 1rem; }
+        .chat-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0 4px; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 16px; }
+        .chat-msg { margin-bottom: 12px; max-width: 85%; }
+        .chat-msg.user { margin-left: auto; }
+        .chat-msg .bubble { padding: 10px 14px; border-radius: 16px; font-size: 0.85rem; line-height: 1.5; white-space: pre-wrap; }
+        .chat-msg.user .bubble { background: #667eea; color: white; border-bottom-right-radius: 4px; }
+        .chat-msg.assistant .bubble { background: white; color: #333; border-bottom-left-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .chat-msg.system .bubble { background: #fef3c7; color: #92400e; font-size: 0.8rem; text-align: center; max-width: 100%; }
+        .chat-input-area { padding: 12px; background: white; border-top: 1px solid #e0e0e0; display: flex; gap: 8px; }
+        .chat-input { flex: 1; border: 1px solid #e0e0e0; border-radius: 20px; padding: 10px 16px; font-size: 0.85rem; font-family: inherit; resize: none; max-height: 100px; }
+        .chat-input:focus { outline: none; border-color: #667eea; }
+        .chat-send { background: #667eea; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .chat-send:disabled { background: #ccc; }
+        .typing-indicator { display: inline-block; } .typing-indicator span { display: inline-block; width: 6px; height: 6px; background: #aaa; border-radius: 50%; margin: 0 1px; animation: typing 1.4s infinite; } .typing-indicator span:nth-child(2) { animation-delay: 0.2s; } .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
+
+        /* Settings panel */
+        .settings-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: center; justify-content: center; }
+        .settings-overlay.open { display: flex; }
+        .settings-panel { background: white; border-radius: 16px; padding: 24px; width: 90%; max-width: 400px; }
+        .settings-panel h3 { margin-bottom: 16px; font-size: 1rem; }
+        .settings-field { margin-bottom: 16px; }
+        .settings-field label { display: block; font-size: 0.8rem; color: #666; margin-bottom: 4px; }
+        .settings-field input { width: 100%; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; font-size: 0.85rem; font-family: inherit; }
+        .settings-field input:focus { outline: none; border-color: #667eea; }
+        .settings-field .hint { font-size: 0.7rem; color: #aaa; margin-top: 4px; }
+        .settings-save { background: #667eea; color: white; border: none; border-radius: 8px; padding: 10px 20px; cursor: pointer; font-size: 0.85rem; width: 100%; }
+        .settings-danger { margin-top: 16px; padding-top: 16px; border-top: 1px solid #f0f0f0; }
+        .settings-danger-btn { background: none; border: 1px solid #ef4444; color: #ef4444; border-radius: 8px; padding: 8px 16px; cursor: pointer; font-size: 0.8rem; width: 100%; }
+
+        /* Memo edit modal */
+        .memo-modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: flex-end; justify-content: center; }
+        .memo-modal-overlay.open { display: flex; }
+        .memo-modal { background: white; border-radius: 16px 16px 0 0; padding: 20px; width: 100%; max-width: 600px; }
+        .memo-modal h4 { margin-bottom: 12px; font-size: 0.95rem; }
+        .memo-modal textarea { width: 100%; min-height: 80px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; font-size: 0.85rem; font-family: inherit; resize: vertical; }
+        .memo-modal textarea:focus { outline: none; border-color: #667eea; }
+        .memo-modal-actions { display: flex; gap: 8px; margin-top: 12px; }
+        .memo-modal-actions button { flex: 1; padding: 10px; border-radius: 8px; border: none; cursor: pointer; font-size: 0.85rem; font-family: inherit; }
+        .memo-modal-actions .save-btn { background: #667eea; color: white; }
+        .memo-modal-actions .cancel-btn { background: #f0f0f0; color: #666; }
+        .memo-modal-actions .delete-btn { background: #fee2e2; color: #ef4444; flex: 0; padding: 10px 16px; }
+
+        footer { text-align: center; color: rgba(255,255,255,0.7); font-size: 0.75rem; padding: 12px; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="main-content">
         <header>
             <h1>🗻 箱根旅行</h1>
             <p>2026年5月7日（木）〜 8日（金）</p>
@@ -212,55 +155,55 @@
                 </div>
             </div>
             <div class="timeline">
-                <div class="event">
+                <div class="event" data-event-id="d1-01">
                     <div class="event-time">8:20</div>
                     <div class="event-title">瀬谷駅 出発（相鉄線）</div>
                     <div class="event-detail">相鉄線で海老名駅へ（約15分）<br>海老名駅で小田急線に乗り換え</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event">
+                <div class="event" data-event-id="d1-02">
                     <div class="event-time">8:40 - 10:00</div>
                     <div class="event-title">海老名駅 → 箱根湯本駅</div>
                     <div class="event-detail">小田急ロマンスカーで箱根湯本へ（約70分）<br>※ロマンスカーは海老名停車！事前予約推奨</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event">
+                <div class="event" data-event-id="d1-03">
                     <div class="event-time">10:15</div>
                     <div class="event-title">箱根湯本駅 到着</div>
                     <div class="event-detail">荷物をコインロッカーに預けて身軽に観光</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event">
+                <div class="event" data-event-id="d1-04">
                     <div class="event-time">10:45 - 11:30</div>
                     <div class="event-title">箱根神社</div>
                     <div class="event-detail">芦ノ湖畔の水中鳥居で記念撮影。<br>箱根湯本からバスで約30分</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event meal">
+                <div class="event meal" data-event-id="d1-05">
                     <div class="event-time">12:00</div>
                     <div class="event-title">ランチ：箱根湯本周辺</div>
                     <div class="event-detail">はつ花 本店（自然薯そば）or<br>田むら銀かつ亭（豆腐かつ煮）</div>
                     <span class="event-tag tag-food">🍽 グルメ</span>
                 </div>
-                <div class="event">
+                <div class="event" data-event-id="d1-06">
                     <div class="event-time">13:30 - 14:30</div>
                     <div class="event-title">大涌谷</div>
                     <div class="event-detail">箱根ロープウェイで空中散歩。<br>名物の黒たまご（寿命+7年!?）を堪能</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event">
+                <div class="event" data-event-id="d1-07">
                     <div class="event-time">15:00 - 16:00</div>
                     <div class="event-title">芦ノ湖 海賊船クルーズ</div>
                     <div class="event-detail">桃源台港→箱根町港<br>天気が良ければ富士山ビュー！</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event onsen">
+                <div class="event onsen" data-event-id="d1-08">
                     <div class="event-time">17:00</div>
                     <div class="event-title">TJK箱根の森 チェックイン</div>
                     <div class="event-detail">強羅エリアの保養所。<br>大浴場・露天風呂でリラックス</div>
                     <span class="event-tag tag-onsen">♨️ 温泉</span>
                 </div>
-                <div class="event meal">
+                <div class="event meal" data-event-id="d1-09">
                     <div class="event-time">18:30</div>
                     <div class="event-title">夕食</div>
                     <div class="event-detail">TJK箱根の森の食堂で夕食</div>
@@ -279,55 +222,55 @@
                 </div>
             </div>
             <div class="timeline">
-                <div class="event onsen">
+                <div class="event onsen" data-event-id="d2-01">
                     <div class="event-time">7:00</div>
                     <div class="event-title">朝風呂</div>
                     <div class="event-detail">TJK箱根の森の大浴場で朝風呂</div>
                     <span class="event-tag tag-onsen">♨️ 温泉</span>
                 </div>
-                <div class="event meal">
+                <div class="event meal" data-event-id="d2-02">
                     <div class="event-time">8:00</div>
                     <div class="event-title">朝食</div>
                     <div class="event-detail">TJK箱根の森の食堂で朝食</div>
                     <span class="event-tag tag-food">🍽 グルメ</span>
                 </div>
-                <div class="event">
+                <div class="event" data-event-id="d2-03">
                     <div class="event-time">9:30</div>
                     <div class="event-title">チェックアウト</div>
                     <div class="event-detail">荷物は宿に預けるか、持って移動</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event museum">
+                <div class="event museum" data-event-id="d2-04">
                     <div class="event-time">9:45 - 11:30</div>
                     <div class="event-title">彫刻の森美術館</div>
                     <div class="event-detail">野外アート×新緑を満喫。ピカソ館も必見。<br>TJK箱根の森から徒歩5分！</div>
                     <span class="event-tag tag-museum">🎨 美術館</span>
                 </div>
-                <div class="event museum">
+                <div class="event museum" data-event-id="d2-05">
                     <div class="event-time">12:00 - 13:30</div>
                     <div class="event-title">ポーラ美術館</div>
                     <div class="event-detail">印象派コレクションが充実。<br>森の遊歩道も散策可能（約20分）</div>
                     <span class="event-tag tag-museum">🎨 美術館</span>
                 </div>
-                <div class="event meal">
+                <div class="event meal" data-event-id="d2-06">
                     <div class="event-time">14:00</div>
                     <div class="event-title">ランチ：箱根湯本</div>
                     <div class="event-detail">はつ花 本店（自然薯そば）or<br>湯葉丼 直吉（ゆばの名店）</div>
                     <span class="event-tag tag-food">🍽 グルメ</span>
                 </div>
-                <div class="event">
+                <div class="event" data-event-id="d2-07">
                     <div class="event-time">15:00 - 15:45</div>
                     <div class="event-title">箱根湯本 商店街散策</div>
                     <div class="event-detail">お土産探し。箱根寄木細工、温泉まんじゅう、<br>干物など名産品をチェック</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event onsen">
+                <div class="event onsen" data-event-id="d2-08">
                     <div class="event-time">16:00 - 16:45</div>
                     <div class="event-title">日帰り温泉：箱根湯寮</div>
                     <div class="event-detail">旅の締めくくりに最後のひと風呂。<br>箱根湯本駅から無料シャトルバスあり</div>
                     <span class="event-tag tag-onsen">♨️ 温泉</span>
                 </div>
-                <div class="event">
+                <div class="event" data-event-id="d2-09">
                     <div class="event-time">17:15</div>
                     <div class="event-title">箱根湯本駅 出発</div>
                     <div class="event-detail">ロマンスカーで海老名へ（約70分）<br>海老名から相鉄線で瀬谷へ。お疲れ様！</div>
@@ -350,9 +293,331 @@
             </ul>
         </div>
 
+        <!-- TODO List -->
+        <div class="todo-section">
+            <h3>☑️ やることリスト</h3>
+            <div id="todo-list"></div>
+            <div class="todo-add">
+                <input type="text" class="todo-add-input" id="todo-input" placeholder="新しいタスクを追加...">
+                <button class="todo-add-btn" onclick="addTodo()">追加</button>
+            </div>
+        </div>
+
+        <!-- Memo Pad -->
+        <div class="memo-section">
+            <h3>📝 メモ帳</h3>
+            <textarea class="memo-textarea" id="memo-pad" placeholder="自由にメモを残せます...&#10;（自動保存されます）"></textarea>
+            <div class="memo-save-hint">💾 入力すると自動保存されます（このスマホ内に保持）</div>
+        </div>
+
         <footer>
             <p>Last updated: 2026/04/30</p>
         </footer>
     </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-btn active" onclick="scrollToTop()">
+            <span class="icon">📅</span>スケジュール
+        </button>
+        <button class="nav-btn" onclick="scrollToMemo()">
+            <span class="icon">📝</span>メモ
+        </button>
+        <button class="nav-btn" onclick="openChat()">
+            <span class="icon">💬</span>AIチャット
+        </button>
+        <button class="nav-btn" onclick="openSettings()">
+            <span class="icon">⚙️</span>設定
+        </button>
+    </nav>
+
+    <!-- Event memo modal -->
+    <div class="memo-modal-overlay" id="memo-modal">
+        <div class="memo-modal">
+            <h4 id="memo-modal-title">メモを追加</h4>
+            <textarea id="memo-modal-text" placeholder="この予定についてのメモ..."></textarea>
+            <div class="memo-modal-actions">
+                <button class="delete-btn" id="memo-delete-btn" onclick="deleteEventMemo()">🗑</button>
+                <button class="cancel-btn" onclick="closeMemoModal()">キャンセル</button>
+                <button class="save-btn" onclick="saveEventMemo()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat panel -->
+    <div class="chat-overlay" id="chat-overlay">
+        <div class="chat-panel">
+            <div class="chat-header">
+                <h3>🤖 AIに相談</h3>
+                <button class="chat-close" onclick="closeChat()">✕</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="chat-msg system"><div class="bubble">箱根旅行のスケジュールについて何でも聞いてください。おすすめスポット、ルート変更、時間調整など相談できます。</div></div>
+            </div>
+            <div class="chat-input-area">
+                <textarea class="chat-input" id="chat-input" placeholder="メッセージを入力..." rows="1"></textarea>
+                <button class="chat-send" id="chat-send" onclick="sendChat()">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings panel -->
+    <div class="settings-overlay" id="settings-overlay" onclick="closeSettingsOutside(event)">
+        <div class="settings-panel">
+            <h3>⚙️ 設定</h3>
+            <div class="settings-field">
+                <label>Anthropic API キー</label>
+                <input type="password" id="api-key-input" placeholder="sk-ant-...">
+                <div class="hint">AIチャット機能に必要です。キーはこのスマホ内にのみ保存され、Anthropic以外には送信されません。</div>
+            </div>
+            <button class="settings-save" onclick="saveSettings()">保存</button>
+            <div class="settings-danger">
+                <button class="settings-danger-btn" onclick="clearAllData()">すべてのローカルデータを削除</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // === Storage helpers ===
+    const STORAGE_KEY = 'hakone-trip';
+    function loadData() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
+    }
+    function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+
+    // === Event memos ===
+    let currentEventId = null;
+    function initEventMemos() {
+        document.querySelectorAll('.event[data-event-id]').forEach(el => {
+            const id = el.dataset.eventId;
+            // Add memo button
+            const btn = document.createElement('span');
+            btn.className = 'event-memo-btn';
+            btn.textContent = '📝 メモ';
+            btn.onclick = (e) => { e.stopPropagation(); openMemoModal(id, el.querySelector('.event-title').textContent); };
+            el.appendChild(btn);
+            // Show existing memo
+            renderEventMemo(id, el);
+        });
+    }
+    function renderEventMemo(id, el) {
+        const data = loadData();
+        const memos = data.eventMemos || {};
+        const existing = el.querySelector('.event-memo');
+        if (existing) existing.remove();
+        if (memos[id]) {
+            const div = document.createElement('div');
+            div.className = 'event-memo';
+            div.textContent = memos[id];
+            const btn = el.querySelector('.event-memo-btn');
+            el.insertBefore(div, btn);
+        }
+    }
+    function openMemoModal(eventId, title) {
+        currentEventId = eventId;
+        const data = loadData();
+        const memos = data.eventMemos || {};
+        document.getElementById('memo-modal-title').textContent = title + ' のメモ';
+        document.getElementById('memo-modal-text').value = memos[eventId] || '';
+        document.getElementById('memo-delete-btn').style.display = memos[eventId] ? '' : 'none';
+        document.getElementById('memo-modal').classList.add('open');
+        setTimeout(() => document.getElementById('memo-modal-text').focus(), 100);
+    }
+    function closeMemoModal() {
+        document.getElementById('memo-modal').classList.remove('open');
+        currentEventId = null;
+    }
+    function saveEventMemo() {
+        const text = document.getElementById('memo-modal-text').value.trim();
+        const data = loadData();
+        if (!data.eventMemos) data.eventMemos = {};
+        if (text) { data.eventMemos[currentEventId] = text; }
+        else { delete data.eventMemos[currentEventId]; }
+        saveData(data);
+        const el = document.querySelector(`[data-event-id="${currentEventId}"]`);
+        if (el) renderEventMemo(currentEventId, el);
+        closeMemoModal();
+    }
+    function deleteEventMemo() {
+        document.getElementById('memo-modal-text').value = '';
+        saveEventMemo();
+    }
+
+    // === Memo pad ===
+    function initMemoPad() {
+        const data = loadData();
+        const pad = document.getElementById('memo-pad');
+        pad.value = data.memoPad || '';
+        pad.addEventListener('input', () => {
+            const d = loadData(); d.memoPad = pad.value; saveData(d);
+        });
+    }
+
+    // === TODO list ===
+    function initTodos() { renderTodos(); }
+    function getTodos() { return loadData().todos || []; }
+    function saveTodos(todos) { const d = loadData(); d.todos = todos; saveData(d); }
+    function renderTodos() {
+        const list = document.getElementById('todo-list');
+        const todos = getTodos();
+        list.innerHTML = '';
+        todos.forEach((t, i) => {
+            const div = document.createElement('div');
+            div.className = 'todo-item';
+            div.innerHTML = `<input type="checkbox" class="todo-checkbox" ${t.done ? 'checked' : ''} onchange="toggleTodo(${i})"><input type="text" class="todo-text ${t.done ? 'done' : ''}" value="${escapeHtml(t.text)}" onchange="editTodo(${i}, this.value)"><button class="todo-delete" onclick="deleteTodo(${i})">✕</button>`;
+            list.appendChild(div);
+        });
+    }
+    function addTodo() {
+        const input = document.getElementById('todo-input');
+        const text = input.value.trim();
+        if (!text) return;
+        const todos = getTodos(); todos.push({ text, done: false }); saveTodos(todos);
+        input.value = ''; renderTodos();
+    }
+    function toggleTodo(i) { const todos = getTodos(); todos[i].done = !todos[i].done; saveTodos(todos); renderTodos(); }
+    function editTodo(i, val) { const todos = getTodos(); todos[i].text = val; saveTodos(todos); }
+    function deleteTodo(i) { const todos = getTodos(); todos.splice(i, 1); saveTodos(todos); renderTodos(); }
+    document.getElementById('todo-input').addEventListener('keydown', e => { if (e.key === 'Enter') addTodo(); });
+    function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML.replace(/"/g, '&quot;'); }
+
+    // === Chat ===
+    let chatHistory = [];
+    function getScheduleText() {
+        let text = '';
+        document.querySelectorAll('.day-section').forEach(sec => {
+            text += sec.querySelector('.day-title h2').textContent + '\n';
+            sec.querySelectorAll('.event').forEach(ev => {
+                const time = ev.querySelector('.event-time').textContent;
+                const title = ev.querySelector('.event-title').textContent;
+                const detail = ev.querySelector('.event-detail').textContent;
+                text += `  ${time} ${title} - ${detail}\n`;
+                const memo = ev.querySelector('.event-memo');
+                if (memo) text += `    [メモ] ${memo.textContent}\n`;
+            });
+            text += '\n';
+        });
+        const memopad = document.getElementById('memo-pad').value;
+        if (memopad) text += `\nメモ帳:\n${memopad}\n`;
+        return text;
+    }
+    function openChat() {
+        document.getElementById('chat-overlay').classList.add('open');
+        document.getElementById('chat-input').focus();
+    }
+    function closeChat() { document.getElementById('chat-overlay').classList.remove('open'); }
+    function addChatMessage(role, text) {
+        const div = document.createElement('div');
+        div.className = `chat-msg ${role}`;
+        div.innerHTML = `<div class="bubble">${escapeHtml(text)}</div>`;
+        document.getElementById('chat-messages').appendChild(div);
+        document.getElementById('chat-messages').scrollTop = 999999;
+    }
+    function addTyping() {
+        const div = document.createElement('div');
+        div.className = 'chat-msg assistant';
+        div.id = 'typing-msg';
+        div.innerHTML = '<div class="bubble"><span class="typing-indicator"><span></span><span></span><span></span></span></div>';
+        document.getElementById('chat-messages').appendChild(div);
+        document.getElementById('chat-messages').scrollTop = 999999;
+    }
+    function removeTyping() { const el = document.getElementById('typing-msg'); if (el) el.remove(); }
+
+    async function sendChat() {
+        const input = document.getElementById('chat-input');
+        const text = input.value.trim();
+        if (!text) return;
+        const data = loadData();
+        const apiKey = data.apiKey;
+        if (!apiKey) { openSettings(); return; }
+
+        addChatMessage('user', text);
+        input.value = '';
+        document.getElementById('chat-send').disabled = true;
+        addTyping();
+
+        const systemPrompt = `あなたは箱根旅行のプランナーです。以下の現在のスケジュールを元に、ユーザーの質問に日本語で簡潔に答えてください。スケジュール変更の提案をする場合は、具体的な時間とともに提案してください。
+
+現在のスケジュール:
+${getScheduleText()}
+
+旅行情報:
+- 日程: 2026年5月7日（木）〜8日（金）
+- 参加者: 大人2名
+- 出発地: 相鉄線 瀬谷駅（海老名経由）
+- 宿泊: TJK箱根の森（強羅エリア、チェックイン17:00）
+- 移動手段: 箱根フリーパス + ロマンスカー`;
+
+        chatHistory.push({ role: 'user', content: text });
+
+        try {
+            const resp = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': apiKey,
+                    'anthropic-version': '2023-06-01',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
+                body: JSON.stringify({
+                    model: 'claude-sonnet-4-20250514',
+                    max_tokens: 1024,
+                    system: systemPrompt,
+                    messages: chatHistory.slice(-10)
+                })
+            });
+            removeTyping();
+            if (!resp.ok) {
+                const err = await resp.json().catch(() => ({}));
+                const msg = err.error?.message || `API Error (${resp.status})`;
+                addChatMessage('system', `エラー: ${msg}`);
+                chatHistory.pop();
+            } else {
+                const result = await resp.json();
+                const reply = result.content[0].text;
+                chatHistory.push({ role: 'assistant', content: reply });
+                addChatMessage('assistant', reply);
+            }
+        } catch (e) {
+            removeTyping();
+            addChatMessage('system', `通信エラー: ${e.message}`);
+            chatHistory.pop();
+        }
+        document.getElementById('chat-send').disabled = false;
+    }
+    document.getElementById('chat-input').addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+    });
+
+    // === Settings ===
+    function openSettings() {
+        const data = loadData();
+        document.getElementById('api-key-input').value = data.apiKey || '';
+        document.getElementById('settings-overlay').classList.add('open');
+    }
+    function closeSettings() { document.getElementById('settings-overlay').classList.remove('open'); }
+    function closeSettingsOutside(e) { if (e.target === document.getElementById('settings-overlay')) closeSettings(); }
+    function saveSettings() {
+        const d = loadData();
+        d.apiKey = document.getElementById('api-key-input').value.trim();
+        saveData(d);
+        closeSettings();
+    }
+    function clearAllData() {
+        if (confirm('メモ、TODO、チャット履歴、APIキーをすべて削除しますか？')) {
+            localStorage.removeItem(STORAGE_KEY);
+            location.reload();
+        }
+    }
+
+    // === Navigation ===
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    function scrollToMemo() { document.querySelector('.memo-section').scrollIntoView({ behavior: 'smooth' }); }
+
+    // === Init ===
+    initEventMemos();
+    initMemoPad();
+    initTodos();
+    </script>
 </body>
 </html>
