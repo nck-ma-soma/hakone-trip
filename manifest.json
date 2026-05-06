@@ -1,0 +1,16 @@
+{
+  "name": "箱根旅行 2026",
+  "short_name": "箱根旅行",
+  "description": "2026年5月7日〜8日 箱根旅行スケジュール",
+  "start_url": "/hakone-trip/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗻</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

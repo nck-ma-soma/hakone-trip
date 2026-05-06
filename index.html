@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
+    <link rel="manifest" href="manifest.json">
     <title>箱根旅行 2026年5月7日〜8日</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,6 +50,7 @@
         /* Event memo */
         .event-memo { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 10px; margin-top: 8px; font-size: 0.8rem; color: #92400e; line-height: 1.4; }
         .event-memo-btn { display: inline-block; font-size: 0.7rem; color: #667eea; cursor: pointer; margin-top: 6px; padding: 2px 6px; border-radius: 4px; background: #eef2ff; }
+        .event-map-link { display: inline-block; font-size: 0.7rem; color: #059669; cursor: pointer; margin-top: 6px; margin-left: 6px; padding: 2px 6px; border-radius: 4px; background: #d1fae5; text-decoration: none; }
 
         .notes-section { background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .notes-section h3 { font-size: 1rem; margin-bottom: 12px; color: #333; }
@@ -181,7 +184,7 @@
                     <div class="event-detail">箱根登山線（箱根湯本行）11番線発<br>箱根湯本2番線着</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event meal" data-event-id="d1-a04">
+                <div class="event meal" data-event-id="d1-a04" data-map="はつ花本店 箱根湯本">
                     <div class="event-time">10:30 - 11:15</div>
                     <div class="event-title">🍜 はつ花 本店（自然薯そば）</div>
                     <div class="event-detail">箱根湯本駅から徒歩7分。開店10:00。<br>木曜は平日なので比較的空いています</div>
@@ -193,13 +196,13 @@
                     <div class="event-detail">箱根登山バス H路線（箱根町方面）<br>箱根湯本駅→元箱根港（約35分）</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event" data-event-id="d1-a06">
+                <div class="event" data-event-id="d1-a06" data-map="箱根神社">
                     <div class="event-time">12:00 - 12:45</div>
                     <div class="event-title">⛩ 箱根神社</div>
                     <div class="event-detail">芦ノ湖畔の水中鳥居で記念撮影。<br>元箱根港から徒歩10分</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event" data-event-id="d1-a07">
+                <div class="event" data-event-id="d1-a07" data-map="元箱根港 箱根海賊船">
                     <div class="event-time">13:25</div>
                     <div class="event-title">⛴ 海賊船 元箱根港 出発</div>
                     <div class="event-detail">元箱根港→桃源台港（約25分）<br>天気が良ければ富士山ビュー！</div>
@@ -211,7 +214,7 @@
                     <div class="event-detail">空中散歩で芦ノ湖・富士山の絶景！<br>約16分・連続運転（1分間隔）</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event" data-event-id="d1-a09">
+                <div class="event" data-event-id="d1-a09" data-map="大涌谷">
                     <div class="event-time">14:10 - 15:00</div>
                     <div class="event-title">🥚 大涌谷</div>
                     <div class="event-detail">名物の黒たまご（寿命+7年!?）を堪能<br>噴煙地散策、富士山展望</div>
@@ -235,7 +238,7 @@
                     <div class="event-detail">箱根登山鉄道（箱根湯本行）<br>1駅・約2分で彫刻の森駅着 ✅ 16:45まで余裕あり</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event onsen" data-event-id="d1-a13">
+                <div class="event onsen" data-event-id="d1-a13" data-map="TJK箱根の森">
                     <div class="event-time">16:00</div>
                     <div class="event-title">TJK箱根の森 到着</div>
                     <div class="event-detail">彫刻の森駅から徒歩5分。<br>大浴場・露天風呂でリラックス</div>
@@ -275,13 +278,13 @@
                     <div class="event-detail">箱根登山バス H路線（箱根町方面）<br>箱根湯本駅→元箱根港（約35分）</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event" data-event-id="d1-b05">
+                <div class="event" data-event-id="d1-b05" data-map="箱根神社">
                     <div class="event-time">11:10 - 11:50</div>
                     <div class="event-title">⛩ 箱根神社</div>
                     <div class="event-detail">芦ノ湖畔の水中鳥居で記念撮影。<br>元箱根港から徒歩10分</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event meal" data-event-id="d1-b06">
+                <div class="event meal" data-event-id="d1-b06" data-map="権現からめもち 箱根">
                     <div class="event-time">12:00 - 12:45</div>
                     <div class="event-title">ランチ：元箱根エリア</div>
                     <div class="event-detail">権現からめもち（名物力餅）or<br>ベーカリー＆テーブル（湖畔レストラン）</div>
@@ -293,7 +296,7 @@
                     <div class="event-detail">芦ノ湖畔をのんびり散策しながら<br>元箱根港へ</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event" data-event-id="d1-b08">
+                <div class="event" data-event-id="d1-b08" data-map="元箱根港 箱根海賊船">
                     <div class="event-time">14:00</div>
                     <div class="event-title">⛴ 海賊船 元箱根港 出発</div>
                     <div class="event-detail">元箱根港→桃源台港（約25分）<br>天気が良ければ富士山ビュー！</div>
@@ -305,7 +308,7 @@
                     <div class="event-detail">空中散歩で芦ノ湖・富士山の絶景！<br>約16分・連続運転（1分間隔）</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event" data-event-id="d1-b10">
+                <div class="event" data-event-id="d1-b10" data-map="大涌谷">
                     <div class="event-time">14:45 - 15:30</div>
                     <div class="event-title">🥚 大涌谷</div>
                     <div class="event-detail">名物の黒たまご（寿命+7年!?）を堪能<br>噴煙地散策、富士山展望</div>
@@ -329,7 +332,7 @@
                     <div class="event-detail">箱根登山鉄道（箱根湯本行）<br>1駅・約2分で彫刻の森駅着 ✅ 16:45まで余裕あり</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event onsen" data-event-id="d1-b14">
+                <div class="event onsen" data-event-id="d1-b14" data-map="TJK箱根の森">
                     <div class="event-time">16:15</div>
                     <div class="event-title">TJK箱根の森 到着</div>
                     <div class="event-detail">彫刻の森駅から徒歩5分。<br>大浴場・露天風呂でリラックス</div>
@@ -372,13 +375,13 @@
                     <div class="event-detail">荷物は宿に預けるか、持って移動</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event museum" data-event-id="d2-04">
+                <div class="event museum" data-event-id="d2-04" data-map="彫刻の森美術館">
                     <div class="event-time">9:45 - 11:30</div>
                     <div class="event-title">🎨 彫刻の森美術館</div>
                     <div class="event-detail">野外アート×新緑を満喫。ピカソ館も必見。<br>TJK箱根の森から徒歩5分！（開館9:00）</div>
                     <span class="event-tag tag-museum">🎨 美術館</span>
                 </div>
-                <div class="event" data-event-id="d2-05">
+                <div class="event" data-event-id="d2-05" data-map="白雲洞茶苑 強羅公園">
                     <div class="event-time">11:40 - 12:15</div>
                     <div class="event-title">強羅公園 白雲洞茶苑</div>
                     <div class="event-detail">歴史ある茶室で抹茶と和菓子を一服。<br>彫刻の森から徒歩約5分。新緑の庭園も◎</div>
@@ -396,13 +399,13 @@
                     <div class="event-detail">2番線着。駅前の商店街へ！</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event meal" data-event-id="d2-08">
+                <div class="event meal" data-event-id="d2-08" data-map="直吉 箱根湯本">
                     <div class="event-time">13:10 - 13:50</div>
                     <div class="event-title">🍜 ランチ：湯葉丼 直吉</div>
                     <div class="event-detail">箱根湯本駅すぐ。ゆば料理の名店。<br>※はつ花は初日プランAで訪問済みの場合</div>
                     <span class="event-tag tag-food">🍽 グルメ</span>
                 </div>
-                <div class="event" data-event-id="d2-09">
+                <div class="event" data-event-id="d2-09" data-map="箱根湯本駅前商店街">
                     <div class="event-time">14:00 - 14:40</div>
                     <div class="event-title">🛍 箱根湯本 商店街散策</div>
                     <div class="event-detail">お土産探し。箱根寄木細工、温泉まんじゅう、<br>干物など名産品をチェック</div>
@@ -414,7 +417,7 @@
                     <div class="event-detail">箱根登山鉄道（小田原行）<br>1駅・約3分で風祭駅着</div>
                     <span class="event-tag tag-transport">🚃 移動</span>
                 </div>
-                <div class="event" data-event-id="d2-11">
+                <div class="event" data-event-id="d2-11" data-map="鈴廣かまぼこの里">
                     <div class="event-time">14:50 - 15:40</div>
                     <div class="event-title">🐟 鈴廣かまぼこの里（かまぼこ体験）</div>
                     <div class="event-detail">手作りかまぼこ・ちくわ体験 ✅予約済み<br>風祭駅直結。体験後はお土産コーナーも</div>
@@ -628,6 +631,17 @@
             btn.textContent = '📝 メモ';
             btn.onclick = (e) => { e.stopPropagation(); openMemoModal(id, el.querySelector('.event-title').textContent); };
             el.appendChild(btn);
+            // Add map link if data-map exists
+            if (el.dataset.map) {
+                const mapLink = document.createElement('a');
+                mapLink.className = 'event-map-link';
+                mapLink.textContent = '📍 地図';
+                mapLink.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(el.dataset.map);
+                mapLink.target = '_blank';
+                mapLink.rel = 'noopener';
+                mapLink.onclick = (e) => e.stopPropagation();
+                el.appendChild(mapLink);
+            }
             // Show existing memo
             renderEventMemo(id, el);
         });
@@ -889,6 +903,11 @@ ${getScheduleText()}
             }
         }
     });
+
+    // === Service Worker (PWA offline) ===
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
     </script>
 </body>
 </html>
