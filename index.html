@@ -546,13 +546,74 @@
         </div>
     </div>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+
     <script>
+    // === Firebase setup ===
+    const firebaseConfig = {
+        apiKey: "AIzaSyBNH91ZCYNprcvLjYAoa6rRrJRC0JL2STQ",
+        authDomain: "hakone-trip-a1d37.firebaseapp.com",
+        databaseURL: "https://hakone-trip-a1d37-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "hakone-trip-a1d37",
+        storageBucket: "hakone-trip-a1d37.firebasestorage.app",
+        messagingSenderId: "579658340541",
+        appId: "1:579658340541:web:5bf8720e6c3c1da457ffd4"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const dataRef = db.ref('shared');
+
     // === Storage helpers ===
     const STORAGE_KEY = 'hakone-trip';
+    let _syncingFromFirebase = false;
+
     function loadData() {
         try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
     }
-    function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+    function saveData(data) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        if (!_syncingFromFirebase) {
+            // Sync to Firebase (exclude apiKey for security)
+            const toSync = Object.assign({}, data);
+            delete toSync.apiKey;
+            dataRef.set(toSync).catch(() => {});
+        }
+    }
+
+    // Real-time listener: sync from other devices
+    dataRef.on('value', (snapshot) => {
+        const remote = snapshot.val();
+        if (!remote) return;
+        const local = loadData();
+        // Merge: keep local apiKey, take remote for everything else
+        const merged = Object.assign({}, remote, { apiKey: local.apiKey || '' });
+        _syncingFromFirebase = true;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+        _syncingFromFirebase = false;
+        // Refresh UI
+        refreshUI(merged);
+    });
+
+    function refreshUI(data) {
+        // Re-render memo pad
+        const pad = document.getElementById('memo-pad');
+        if (pad && document.activeElement !== pad) pad.value = data.memoPad || '';
+        // Re-render todos
+        if (typeof renderTodos === 'function') renderTodos();
+        // Re-render event memos
+        document.querySelectorAll('.event[data-event-id]').forEach(el => {
+            const id = el.dataset.eventId;
+            if (typeof renderEventMemo === 'function') renderEventMemo(id, el);
+        });
+        // Re-apply plan selection
+        const plan = data.selectedPlan || 'A';
+        const planA = document.getElementById('plan-A');
+        const planB = document.getElementById('plan-B');
+        if (planA) planA.style.display = plan === 'A' ? '' : 'none';
+        if (planB) planB.style.display = plan === 'B' ? '' : 'none';
+    }
 
     // === Event memos ===
     let currentEventId = null;
@@ -778,6 +839,7 @@ ${getScheduleText()}
     function clearAllData() {
         if (confirm('メモ、TODO、チャット履歴、APIキーをすべて削除しますか？')) {
             localStorage.removeItem(STORAGE_KEY);
+            dataRef.remove().catch(() => {});
             location.reload();
         }
     }
@@ -815,6 +877,18 @@ ${getScheduleText()}
     initEventMemos();
     initMemoPad();
     initTodos();
+
+    // Push existing local data to Firebase if remote is empty
+    dataRef.once('value', (snapshot) => {
+        if (!snapshot.val()) {
+            const local = loadData();
+            if (Object.keys(local).length > 0) {
+                const toSync = Object.assign({}, local);
+                delete toSync.apiKey;
+                dataRef.set(toSync).catch(() => {});
+            }
+        }
+    });
     </script>
 </body>
 </html>
