@@ -202,7 +202,7 @@
                     <div class="event-detail">芦ノ湖畔の水中鳥居で記念撮影。<br>元箱根港から徒歩10分</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event" data-event-id="d1-a07" data-map="35.2009306,139.0305263">
+                <div class="event" data-event-id="d1-a07" data-map="https://www.google.com/maps/place/%E7%AE%B1%E6%A0%B9%E6%B5%B7%E8%B3%8A%E8%88%B9+%E5%85%83%E7%AE%B1%E6%A0%B9%E6%B8%AF/@35.2010141,139.0310329,16.5z/data=!4m6!3m5!1s0x6019987d3a7c6a3d:0xefdd4cc47e408215!8m2!3d35.2009306!4d139.0305263!16s%2Fg%2F121nm7cv">
                     <div class="event-time">13:25</div>
                     <div class="event-title">⛴ 海賊船 元箱根港 出発</div>
                     <div class="event-detail">元箱根港→桃源台港（約25分）<br>天気が良ければ富士山ビュー！</div>
@@ -296,7 +296,7 @@
                     <div class="event-detail">芦ノ湖畔をのんびり散策しながら<br>元箱根港へ</div>
                     <span class="event-tag tag-spot">📍 観光</span>
                 </div>
-                <div class="event" data-event-id="d1-b08" data-map="35.2009306,139.0305263">
+                <div class="event" data-event-id="d1-b08" data-map="https://www.google.com/maps/place/%E7%AE%B1%E6%A0%B9%E6%B5%B7%E8%B3%8A%E8%88%B9+%E5%85%83%E7%AE%B1%E6%A0%B9%E6%B8%AF/@35.2010141,139.0310329,16.5z/data=!4m6!3m5!1s0x6019987d3a7c6a3d:0xefdd4cc47e408215!8m2!3d35.2009306!4d139.0305263!16s%2Fg%2F121nm7cv">
                     <div class="event-time">14:00</div>
                     <div class="event-title">⛴ 海賊船 元箱根港 出発</div>
                     <div class="event-detail">元箱根港→桃源台港（約25分）<br>天気が良ければ富士山ビュー！</div>
@@ -636,7 +636,7 @@
                 const mapLink = document.createElement('a');
                 mapLink.className = 'event-map-link';
                 mapLink.textContent = '📍 地図';
-                mapLink.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(el.dataset.map);
+                mapLink.href = el.dataset.map.startsWith('http') ? el.dataset.map : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(el.dataset.map);
                 mapLink.target = '_blank';
                 mapLink.rel = 'noopener';
                 mapLink.onclick = (e) => e.stopPropagation();
